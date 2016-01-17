@@ -29677,7 +29677,7 @@ var Header = React.createClass({displayName: "Header",
           React.createElement("span", {className: "icon-bar"}), 
           React.createElement("span", {className: "icon-bar"})
         ), 
-        React.createElement("a", {className: "navbar-brand", href: "/"}, React.createElement("img", {className: "image-logo", src: "images/pluralsight.png"}))
+        React.createElement("a", {className: "navbar-brand vertical-aligner", href: "/"}, React.createElement("img", {className: "image-logo", src: "images/pluralsight.png", className: "image-logo"}))
       ), 
 
       React.createElement("div", {className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1"}, 
