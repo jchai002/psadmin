@@ -12,6 +12,8 @@ var App = React.createClass({
     switch(this.props.route) {
       case 'about': Child = About;
         break;
+      case 'authors': Child = Authors;
+        break;
       default: Child = Home;
     }
 
