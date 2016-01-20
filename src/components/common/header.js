@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Header = React.createClass({
   render: function(){
@@ -15,15 +17,15 @@ var Header = React.createClass({
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand vertical-aligner" href="/"><img className="image-logo" src="images/pluralsight.png" className="image-logo"/></a>
+        <li><Link to='app' className="navbar-brand vertical-aligner"><img className="image-logo" src="images/pluralsight.png" className="image-logo"/></Link></li>
       </div>
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#authors">Authors</a></li>
+          <li><Link to='app'>Home</Link></li>
+          <li><Link to="about">About</Link></li>
+          <li><Link to="authors">Authors</Link></li>
         </ul>
       </div>
     </div>

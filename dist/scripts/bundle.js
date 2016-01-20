@@ -47190,6 +47190,8 @@ module.exports = AuthorPage
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Header = React.createClass({displayName: "Header",
   render: function(){
@@ -47204,15 +47206,15 @@ var Header = React.createClass({displayName: "Header",
           React.createElement("span", {className: "icon-bar"}), 
           React.createElement("span", {className: "icon-bar"})
         ), 
-        React.createElement("a", {className: "navbar-brand vertical-aligner", href: "/"}, React.createElement("img", {className: "image-logo", src: "images/pluralsight.png", className: "image-logo"}))
+        React.createElement("li", null, React.createElement(Link, {to: "app", className: "navbar-brand vertical-aligner"}, React.createElement("img", {className: "image-logo", src: "images/pluralsight.png", className: "image-logo"})))
       ), 
 
       React.createElement("div", {className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1"}, 
 
         React.createElement("ul", {className: "nav navbar-nav navbar-right"}, 
-          React.createElement("li", null, React.createElement("a", {href: "/"}, "Home")), 
-          React.createElement("li", null, React.createElement("a", {href: "/#about"}, "About")), 
-          React.createElement("li", null, React.createElement("a", {href: "/#authors"}, "Authors"))
+          React.createElement("li", null, React.createElement(Link, {to: "app"}, "Home")), 
+          React.createElement("li", null, React.createElement(Link, {to: "about"}, "About")), 
+          React.createElement("li", null, React.createElement(Link, {to: "authors"}, "Authors"))
         )
       )
     )
@@ -47224,17 +47226,20 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":198}],206:[function(require,module,exports){
+},{"react":198,"react-router":29}],206:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Home = React.createClass({displayName: "Home",
   render: function(){
     return (
       React.createElement("div", null, 
         React.createElement("h1", {className: "jumbotron"}, "PS admin"), 
-        React.createElement("p", null, "content goes here")
+        React.createElement("p", null, "content goes here"), 
+        React.createElement(Link, {to: "about", className: "btn btn-primary btn-lg"}, "Learn More")
       )
     );
   }
@@ -47242,7 +47247,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":198}],207:[function(require,module,exports){
+},{"react":198,"react-router":29}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
