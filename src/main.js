@@ -1,9 +1,10 @@
-
 $ = jQuery = require('jquery');
 var React = require('react');
 var Home = require('./components/homePage');
 var About = require('./components/about/aboutPage');
+var Authors = require('./components/authors/authorPage');
 var Header = require('./components/common/header');
+
 
 var App = React.createClass({
   render: function(){
@@ -22,9 +23,9 @@ var App = React.createClass({
         <Header/>
         <Child/>
       </div>
-    )
+    );
   }
-})
+});
 
 function render(){
   var route = window.location.hash.substr(1);
