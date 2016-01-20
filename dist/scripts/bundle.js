@@ -47081,6 +47081,25 @@ module.exports = {
 'use strict';
 
 var React = require('react');
+var Link = require('react-router').Link;
+
+var notFound = React.createClass({displayName: "notFound",
+  render: function(){
+    return (
+      React.createElement("div", null, 
+        React.createElement("h1", {className: "jumbotron"}, "404 Content Not Found "), 
+        React.createElement(Link, {to: "about", className: "btn btn-primary btn-lg"}, "Back To Home")
+      )
+    );
+  }
+});
+
+module.exports = notFound;
+
+},{"react":198,"react-router":29}],202:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
 
 var About = React.createClass({displayName: "About",
   render: function(){
@@ -47095,7 +47114,7 @@ var About = React.createClass({displayName: "About",
 
 module.exports = About;
 
-},{"react":198}],202:[function(require,module,exports){
+},{"react":198}],203:[function(require,module,exports){
 // 'use strict';
 
 var React  = require('react');
@@ -47118,7 +47137,7 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"./common/header":205,"jquery":2,"react":198,"react-router":29}],203:[function(require,module,exports){
+},{"./common/header":206,"jquery":2,"react":198,"react-router":29}],204:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47156,7 +47175,7 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 
 module.exports = AuthorList
 
-},{"react":198}],204:[function(require,module,exports){
+},{"react":198}],205:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47186,7 +47205,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
 
 module.exports = AuthorPage
 
-},{"../../api/authorApi":199,"./authorList":203,"react":198}],205:[function(require,module,exports){
+},{"../../api/authorApi":199,"./authorList":204,"react":198}],206:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47226,7 +47245,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":198,"react-router":29}],206:[function(require,module,exports){
+},{"react":198,"react-router":29}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47247,7 +47266,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":198,"react-router":29}],207:[function(require,module,exports){
+},{"react":198,"react-router":29}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47258,21 +47277,23 @@ Router.run(routes, function(Handler){
   React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":208,"react":198,"react-router":29}],208:[function(require,module,exports){
+},{"./routes":209,"react":198,"react-router":29}],209:[function(require,module,exports){
 'use strict';
 var React = require('react')
 var Router = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
+var NotFoundRoute = Router.NotFoundRoute;
 
 var routes = (
   React.createElement(Route, {name: "app", path: "/", handler: require('./components/app')}, 
     React.createElement(DefaultRoute, {handler: require('./components/homePage')}), 
     React.createElement(Route, {name: "authors", handler: require('./components/authors/authorPage')}), 
-    React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')})
+    React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')}), 
+    React.createElement(NotFoundRoute, {handler: require('./components/404')})
   )
 );
 
 module.exports = routes;
 
-},{"./components/about/aboutPage":201,"./components/app":202,"./components/authors/authorPage":204,"./components/homePage":206,"react":198,"react-router":29}]},{},[207]);
+},{"./components/404":201,"./components/about/aboutPage":202,"./components/app":203,"./components/authors/authorPage":205,"./components/homePage":207,"react":198,"react-router":29}]},{},[208]);
