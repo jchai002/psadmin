@@ -47109,12 +47109,6 @@ var About = React.createClass({displayName: "About",
       } else {
         callback();
       }
-    },
-
-    willTransitionFrom: function(transition, params, query, callback) {
-      if (!confirm('Are you sure you want to leave this exciting page?')){
-        transition.about();
-      }
     }
   },
   render: function(){
