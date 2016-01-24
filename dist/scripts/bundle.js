@@ -47146,7 +47146,7 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"./common/header":206,"jquery":2,"react":198,"react-router":29}],204:[function(require,module,exports){
+},{"./common/header":207,"jquery":2,"react":198,"react-router":29}],204:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47190,6 +47190,8 @@ module.exports = AuthorList
 var React = require('react');
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
+var addAuthor = require('./manageAuthorPage');
+var Link = require('react-router').Link;
 
 var AuthorPage = React.createClass({displayName: "AuthorPage",
   getInitialState: function(){
@@ -47206,6 +47208,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
     return (
       React.createElement("div", null, 
         React.createElement("h1", null, "Authors"), 
+          React.createElement(Link, {to: "addAuthor", className: "btn btn-default"}, "Add Authors"), 
           React.createElement(AuthorList, {authors: this.state.authors})
       )
     );
@@ -47214,7 +47217,27 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
 
 module.exports = AuthorPage
 
-},{"../../api/authorApi":199,"./authorList":204,"react":198}],206:[function(require,module,exports){
+},{"../../api/authorApi":199,"./authorList":204,"./manageAuthorPage":206,"react":198,"react-router":29}],206:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+
+var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
+
+  render: function(){
+
+    return (
+      React.createElement("div", null, 
+        React.createElement("h1", null, "Add Authors")
+      )
+    );
+  }
+});
+
+module.exports = ManageAuthorPage
+
+},{"react":198}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47254,7 +47277,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":198,"react-router":29}],207:[function(require,module,exports){
+},{"react":198,"react-router":29}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47275,7 +47298,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":198,"react-router":29}],208:[function(require,module,exports){
+},{"react":198,"react-router":29}],209:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -47286,7 +47309,7 @@ Router.run(routes, function(Handler){
   React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":209,"react":198,"react-router":29}],209:[function(require,module,exports){
+},{"./routes":210,"react":198,"react-router":29}],210:[function(require,module,exports){
 'use strict';
 var React = require('react')
 var Router = require('react-router');
@@ -47299,6 +47322,7 @@ var routes = (
   React.createElement(Route, {name: "app", path: "/", handler: require('./components/app')}, 
     React.createElement(DefaultRoute, {handler: require('./components/homePage')}), 
     React.createElement(Route, {name: "authors", handler: require('./components/authors/authorPage')}), 
+    React.createElement(Route, {name: "addAuthor", path: "author", handler: require('./components/authors/manageAuthorPage')}), 
     React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')}), 
     React.createElement(NotFoundRoute, {handler: require('./components/404')}), 
     React.createElement(Redirect, {from: "about-us", to: "about"}), 
@@ -47309,4 +47333,4 @@ var routes = (
 
 module.exports = routes;
 
-},{"./components/404":201,"./components/about/aboutPage":202,"./components/app":203,"./components/authors/authorPage":205,"./components/homePage":207,"react":198,"react-router":29}]},{},[208]);
+},{"./components/404":201,"./components/about/aboutPage":202,"./components/app":203,"./components/authors/authorPage":205,"./components/authors/manageAuthorPage":206,"./components/homePage":208,"react":198,"react-router":29}]},{},[209]);
