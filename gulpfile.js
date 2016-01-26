@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require('gulp');
+var scss = require('gulp-scss');
 var connect = require('gulp-connect'); //Runs a local dev server
 var open = require('gulp-open'); //Open a URL in a web browser
 var browserify = require('browserify'); // Bundles JS
@@ -21,6 +22,7 @@ var config = {
       		'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
 					'./src/css/*'
     	],
+		scss:'node_modules/toastr/*.scss',
 		dist: './dist',
 		mainJs: './src/main.js'
 	}
@@ -63,6 +65,13 @@ gulp.task('css', function() {
 		.pipe(gulp.dest(config.paths.dist + '/css'));
 });
 
+gulp.task('scss', function () {
+			gulp.src(config.paths.scss)
+			.pipe(scss(
+					{"bundleExec": true}
+			)).pipe(gulp.dest(config.paths.dist + '/scss'));
+	});
+
 gulp.task('images', function() {
 	gulp.src(config.paths.images)
 		.pipe(gulp.dest(config.paths.dist + '/images'))
@@ -81,8 +90,9 @@ gulp.task('lint', function() {
 gulp.task('watch', function() {
 	gulp.watch(config.paths.html, ['html']);
 	gulp.watch(config.paths.css, ['css']);
+	gulp.watch(config.paths.scss, ['scss']);
 	gulp.watch(config.paths.js, ['js', 'lint']);
 	gulp.watch(config.paths.images, ['images']);
 });
 
-gulp.task('default', ['html', 'js', 'css','images', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css','scss','images', 'lint', 'open', 'watch']);
