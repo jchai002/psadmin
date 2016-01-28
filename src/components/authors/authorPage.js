@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react');
-var AuthorApi = require('../../api/authorApi');
+var AuthorActions = require('../../actions/authorActions');
+var AuthorStore = require('../../stores/authorStore');
 var AuthorList = require('./authorList');
 var addAuthor = require('./manageAuthorPage');
 var Link = require('react-router').Link;
@@ -9,13 +10,8 @@ var Link = require('react-router').Link;
 var AuthorPage = React.createClass({
   getInitialState: function(){
     return {
-      authors: []
+      authors: AuthorStore.getAllAuthors()
     };
-  },
-  componentDidMount: function(){
-    if (this.isMounted()) {
-      this.setState({authors: AuthorApi.getAllAuthors() });
-    }
   },
   render: function(){
     return (

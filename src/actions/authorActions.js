@@ -11,6 +11,8 @@ var AuthorActions = {
       actionType: ActionTypes.CREATE_AUTHOR,
       author: newAuthor
     });
+
+    console.log('hit create new author action')
   }
 }
 
